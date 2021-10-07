@@ -81,7 +81,7 @@
     <script src="../js/classes.js"></script>
 
     <script>
-        leave.addEventListener('click', () => window.location.href = '/');
+        leave.addEventListener('click', () => window.location.href = './menu');
         $(searchKey).on('keyup', (event) => {
             if (event.key === 'Enter' && event.target.value !== '') {
                 return Comm.doSearch('?q=' + encodeURIComponent(event.target.value) + '&page=1')
