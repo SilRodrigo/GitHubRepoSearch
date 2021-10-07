@@ -4,7 +4,7 @@ $(searchContent).on('keyup', (event) => {
         clearTimeout(typingTimer);
         $(text).removeClass('display-5').addClass('display-1 text-center')
         $(text).html('Ok! Apertem os cintos!')
-        return typingTimer = setTimeout(() => { window.location.href = 'GitHubRepoSearch/edit/main/assets/search?' + 'q=' + encodeURIComponent(event.target.value) + '&page=1' }, 500);
+        return typingTimer = setTimeout(() => { window.location.href = '/search?' + 'q=' + encodeURIComponent(event.target.value) + '&page=1' }, 500);
     }
     if (event.target.value === '') {
         $(text).removeClass('display-5').addClass('display-1')
