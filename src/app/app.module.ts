@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { LandPageComponent } from './land-page/land-page.component';
 import { SearchTabComponent } from './search/search-tab/search-tab.component';
 import { SearchResultListComponent } from './search/search-result-list/search-result-list.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandPageComponent,
     SearchTabComponent,
-    SearchResultListComponent
+    SearchResultListComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

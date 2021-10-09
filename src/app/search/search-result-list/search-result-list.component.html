@@ -1,28 +1,27 @@
-<div class="pt-5 pb-3"></div>
-<div class="pt-2 display-3 text-center"></div>
+<div class="display-3 text-center">{{queryList?.total_count || 0}} repositórios encontrados</div>
 <div class="container-fluid bg-light ">
-    <div class="row h-100">
+    <div class="row">
         <div class="col-12 px-3 row d-flex justify-content-center">
-            <div *ngFor="let searchResultCard of cards"
+            <div *ngFor="let repository of queryList?.items"
                 class="m-3 col-12 col-lg-5 card shadow border-left-secondary pool-card">
                 <div class="card-body mb-2 d-flex align-items-center">
                     <div class="w-100">
                         <div class="pb-2 d-flex justify-content-between">
-                            <a class="col-12 col-sm-8 card-full-name h6"
-                                target="_blank">{{searchResultCard.full_name}}</a>
-                            <div class="col-12 col-sm-4 card-updated">{{searchResultCard.updated_at}} </div>
+                            <a class="col-12 col-sm-8 card-full-name h6" href="{{repository.clone_url}}"
+                                target="_blank">{{repository.full_name}}</a>
+                            <div class="col-12 col-sm-4 card-updated">{{repository.updated_at}} </div>
                         </div>
-                        <div class="py-1 card-description card-description-truncate">{{searchResultCard.description}}
+                        <div class="py-1 card-description card-description-truncate">{{repository.description}}
                         </div>
                         <div class="py-1 d-flex justify-content-start h6">
                             <div><i class="fa fa-star-o text-warning" aria-hidden="true"></i>
-                                {{searchResultCard.stargazers_count}}
+                                {{repository.stargazers_count}}
                             </div>
-                            <div *ngIf="searchResultCard.language" class="ps-2"><i class="fa fa-file-code-o text-danger"
-                                    aria-hidden="true"></i> {{searchResultCard.language}} </div>
-                            <div *ngIf="searchResultCard.license?.name" class="ps-3"> {{searchResultCard.license?.name}}
+                            <div *ngIf="repository.language" class="ps-2"><i class="fa fa-file-code-o text-danger"
+                                    aria-hidden="true"></i> {{repository.language}} </div>
+                            <div *ngIf="repository.license?.name" class="ps-3"> {{repository.license?.name}}
                             </div>
-                            <div class="ps-3"> {{searchResultCard.open_issues}} issues precisam de ajuda </div>
+                            <div class="ps-3"> {{repository.open_issues}} issues precisam de ajuda </div>
                         </div>
                     </div>
                 </div>
