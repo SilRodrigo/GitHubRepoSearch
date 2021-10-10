@@ -1,5 +1,5 @@
 export interface SearchResult {
-  total_count: string;
+  total_count: number;
   items: SearchResultItem[];
 }
 

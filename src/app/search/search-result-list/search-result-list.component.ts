@@ -9,7 +9,25 @@ import { SearchResult } from '../search-result';
 export class SearchResultListComponent implements OnInit {
   @Input() queryList?: SearchResult;
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
+
+  formatTotalCount(value: number): string {
+    return new Intl.NumberFormat().format(value);
+  }
+
+  formatDateToDisplay(date: string | Date): string {
+    date = new Date(date);
+    let today = new Date();
+    if (date.getDate() === today.getDate())
+      return `Atualizado ${new Date().getHours() - date.getHours()
+        } hora(s) atrás.`;
+    if (today.setDate(today.getDate() - 4) <= date.getTime())
+      return `Atualizado ${new Date().getDate() - date.getDate()
+        } dia(s) atrás.`;
+    return `Atualizado em ${('0' + date.getDate()).slice(-2)}/${(
+      '0' + date.getMonth()
+    ).slice(-2)}/${date.getFullYear()}`;
+  }
 }

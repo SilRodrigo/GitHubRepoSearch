@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { SearchResult } from './search-result';
+import { SearchService } from './search.service';
 
 @Component({
   selector: 'app-search',
@@ -7,10 +8,22 @@ import { SearchResult } from './search-result';
   styleUrls: ['./search.component.css'],
 })
 export class SearchComponent implements OnInit {
-  queryList?: SearchResult;
+  @Input() queryResponseList?: SearchResult;
+  currentPage: number = 1;
+  query: string = '';
 
-  constructor() {}
+  constructor(private searchService: SearchService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
+  async updateQueryList(query: string, newQuery: boolean) {
+    if (newQuery) this.currentPage = 1;
+    this.query = query;
+    this.queryResponseList = await this.searchService.getRepositoryQueryList(query, this.currentPage);
+  }
+
+  async updateQueryPage(page: number) {
+    this.currentPage = page
+    this.updateQueryList(this.query, false);
+  }
 }

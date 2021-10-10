@@ -1,6 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { SearchResult } from '../search-result';
-import { SearchService } from '../search.service';
 
 @Component({
   selector: 'app-search-tab',
@@ -12,17 +11,16 @@ export class SearchTabComponent implements OnInit {
   queryResponse?: SearchResult;
   @Output() updateQueryList = new EventEmitter<any>();
 
-  constructor(private searchService: SearchService) {}
+  constructor() {}
 
   ngOnInit(): void {}
 
-  async submitOnEnterPress(event: KeyboardEvent) {
-    const target = event.target as HTMLInputElement;
-    if (event.key === 'Enter' && target.value !== '') {
-      this.queryResponse = await this.searchService.getRepositoryQueryList(
-        target.value
-      );
-      this.updateQueryList.emit(this.queryResponse);
+  async submitOnEnterKeyPress(event: KeyboardEvent) {
+    if (event.key === 'Enter') {
+      const target = event.target as HTMLInputElement;
+      if (target.value !== '') {
+        this.updateQueryList.emit(target.value);
+      }
     }
   }
 }

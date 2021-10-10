@@ -1,2 +1,5 @@
-<app-search-tab (updateQueryList)="queryList=$event" ></app-search-tab>
-<app-search-result-list [queryList]="queryList"></app-search-result-list>
+<app-search-tab (updateQueryList)="updateQueryList($event, true)"></app-search-tab>
+<app-search-result-list [queryList]="queryResponseList"></app-search-result-list>
+<app-search-pagination [totalResults]="queryResponseList?.total_count" [currentPage]="currentPage"
+  (updateQueryList)="updateQueryPage($event)">
+</app-search-pagination>
