@@ -6,10 +6,6 @@
   justify-content: center;
 }
 
-.pointer{
-  cursor: pointer;
-}
-
 .page-link{
   display: flex;
   align-items: center;

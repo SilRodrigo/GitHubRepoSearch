@@ -2,13 +2,13 @@
   <div class="col-4 col-sm-4 mt-2 h3 border-bottom text-white text-end text-truncate">Pesquisar:</div>
   <div class="col-6 ps-2 mt-2">
     <div class=" input-group">
-      <input id="searchKey" name="searchKey" type="text" class="form-control" placeholder="Procurando...."
-        (keypress)="submitOnEnterKeyPress($event)" aria-label="Procurando....">
-      <span class="input-group-text"><i class="fa fa-search" aria-hidden="true"></i></span>
+      <input #searchKey name="searchKey" type="text" class="form-control" placeholder="Qual repositório quer pesquisar?"
+        (keypress)="submitOnEnterKeyPress($event)" aria-label="pesquisar">
+      <span class="input-group-text pointer" (click)="submitOnButtonClick(searchKey.value)"><i class="fa fa-search" aria-hidden="true"></i></span>
     </div>
   </div>
   <div class="col-2 mt-2 text-end text-white">
-    <button type="button" class="btn bg-transparent text-white" title="Fazer outra pesquisa" id="leave">
+    <button type="button" class="btn bg-transparent text-white" title="Voltar a página de inicio" id="leave">
       <i class="fa fa-undo fa-2x" aria-hidden="true"></i>
     </button>
   </div>

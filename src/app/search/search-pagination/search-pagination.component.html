@@ -8,10 +8,10 @@
       <div class="page-link">{{currentPage}}</div>
     </li>
     <li class="page-item">
-      <div class="page-link go-to">Ir para: <input class="ms-1" type="number" (keypress)="goToPage($event)"></div>
+      <div class="page-link go-to">Ir para: <input class="ms-1" type="number" (keypress)="goToKeyPress($event)"></div>
     </li>
-    <li class="page-item">
-      <div *ngIf="totalPages &&totalPages !== currentPage" class="page-link">{{totalPages}}</div>
+    <li *ngIf="totalPages && totalPages !== currentPage" class="page-item pointer">
+      <div class="page-link" (click)="goToPage(totalPages)">{{totalPages}}</div>
     </li>
     <li class="page-item pointer" (click)="nextPage()">
       <div class="page-link">

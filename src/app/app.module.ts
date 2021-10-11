@@ -8,6 +8,7 @@ import { SearchComponent } from './search/search.component';
 import { SearchTabComponent } from './search/search-tab/search-tab.component';
 import { SearchResultListComponent } from './search/search-result-list/search-result-list.component';
 import { SearchPaginationComponent } from './search/search-pagination/search-pagination.component';
+import { LoadingComponent } from './loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SearchPaginationComponent } from './search/search-pagination/search-pag
     SearchTabComponent,
     SearchResultListComponent,
     SearchComponent,
-    SearchPaginationComponent
+    SearchPaginationComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

@@ -3,7 +3,7 @@ import { Component, Input, OnInit, OnChanges, SimpleChanges, EventEmitter, Outpu
 @Component({
   selector: 'app-search-pagination',
   templateUrl: './search-pagination.component.html',
-  styleUrls: ['./search-pagination.component.css'],
+  styleUrls: ['./search-pagination.component.css', '../search.component.css'],
 })
 export class SearchPaginationComponent implements OnInit, OnChanges {
   @Input() totalResults?: number;
@@ -38,12 +38,16 @@ export class SearchPaginationComponent implements OnInit, OnChanges {
     this.updateQueryList.emit(this.currentPage)
   }
 
-  goToPage(event: KeyboardEvent) {
+  goToKeyPress(event: KeyboardEvent) {
     if (event.key === 'Enter') {
       const page: number = parseInt((event.target as HTMLInputElement).value);
-      if (page > this.MAX_PAGINATION || page < 1) return;
-      this.currentPage = page;
-      this.updateQueryList.emit(this.currentPage);
+      this.goToPage(page);
     }
+  }
+
+  goToPage(page: number) {
+    if (!page || page > this.MAX_PAGINATION || page < 1) return;
+    this.currentPage = page;
+    this.updateQueryList.emit(this.currentPage);
   }
 }
