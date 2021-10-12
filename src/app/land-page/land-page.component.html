@@ -1,3 +1,18 @@
-<menu class="menu-bg">
-    
+<menu class="menu">
+  <div class="container">
+    <div class="row">
+      <div class="col-6 d-flex justify-content-end display-1 text-gray">
+        <div class="text-end menu-text">
+          Olá!<br>Vamos pesquisar no Git?
+        </div>
+      </div>
+      <div class="col-4 d-flex align-items-center">
+        <div class="input-group">
+          <input type="text" class="form-control text-center" autocomplete="off"
+            placeholder="Bora, é só digitar aqui..." routerLink="/search/{{query}}"
+            (keypress)="submitOnEnterKeyPress($event)">
+        </div>
+      </div>
+    </div>
+  </div>
 </menu>

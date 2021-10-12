@@ -3,11 +3,12 @@
   <div class="col-6 ps-2 mt-2">
     <div class=" input-group">
       <input #searchKey name="searchKey" type="text" class="form-control" placeholder="Qual repositório quer pesquisar?"
-        (keypress)="submitOnEnterKeyPress($event)" aria-label="pesquisar">
-      <span class="input-group-text pointer" (click)="submitOnButtonClick(searchKey.value)"><i class="fa fa-search" aria-hidden="true"></i></span>
+        (keypress)="submitOnEnterKeyPress($event)" aria-label="pesquisar" value="{{query}}">
+      <span class="input-group-text pointer" (click)="submitOnButtonClick(searchKey.value)"><i class="fa fa-search"
+          aria-hidden="true"></i></span>
     </div>
   </div>
-  <div class="col-2 mt-2 text-end text-white">
+  <div class="col-2 mt-2 text-end text-white" (click)="goBack()">
     <button type="button" class="btn bg-transparent text-white" title="Voltar a página de inicio" id="leave">
       <i class="fa fa-undo fa-2x" aria-hidden="true"></i>
     </button>

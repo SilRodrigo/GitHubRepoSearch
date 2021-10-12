@@ -1,4 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Location } from '@angular/common';
 import { SearchResult } from '../search-result';
 
 @Component({
@@ -7,11 +8,11 @@ import { SearchResult } from '../search-result';
   styleUrls: ['./search-tab.component.css', '../search.component.css'],
 })
 export class SearchTabComponent implements OnInit {
-  searchKey?: string;
+  @Input() query: string = '';
   queryResponse?: SearchResult;
   @Output() updateQueryList = new EventEmitter<any>();
 
-  constructor() { }
+  constructor(private location: Location) { }
 
   ngOnInit(): void { }
 
@@ -26,5 +27,9 @@ export class SearchTabComponent implements OnInit {
 
   async submitOnButtonClick(value: string) {
     if (value !== '') this.updateQueryList.emit(value);
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }

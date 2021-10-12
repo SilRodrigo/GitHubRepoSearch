@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { SearchResult } from './search-result';
 import { SearchService } from './search.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -13,9 +14,12 @@ export class SearchComponent implements OnInit {
   query: string = '';
   loading: boolean = false;
 
-  constructor(private searchService: SearchService) { }
+  constructor(private searchService: SearchService, private route: ActivatedRoute) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    const query = String(this.route.snapshot.paramMap.get('id'))
+    this.updateQueryList(query, true);
+  }
 
   async updateQueryList(query: string, newQuery: boolean) {
     this.loading = true;
