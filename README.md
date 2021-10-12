@@ -1,40 +1,24 @@
-Aplicação que consulta os repositórios do GITHUB
+**O que é o GitHubRepoSearch?** <br>
+É uma SPA em Angular feita a partir de um desafio proposto pela empresa FieldControl<br>
+No qual a aplicação deveria consumir a API de repositorios do GitHub, exibindo informações relevantes<br>
+como URL, descrição, estrelas, issues etc.
 
-Abaixo o link de como a aplicação estava sem estruturação de framework.
-Link para teste live
+No começo a aplicação havia sido feito sem uso de frameworks mas posteriormente <br> 
+ela foi migrada e aplicada melhor estruturação. _(Estado atual)_
 
-https://silrodrigo.github.io/GitHubRepoSearch
+![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/86023272/136889742-ffdc82d1-b1f5-4220-b342-cbf6910df155.gif)
 
-No branch migracao-angular está o projeto depois de aplicado estruturação 
-dos diretórios e utilizado o framework Angular
+**Utilização e Navegação** <br>
+Ao acessar a aplicação ela te levará a landing page para digitar a consulta.
+_digite o que deseja buscar e pressione enter_
 
-Em breve estarei acrescentando alguns gifs do funcionamento da aplicação e disposição da lógica aplicada.
+Após, você direcionado para a tela de listagem onde aparecerão os resultados paginados, <br>
+por enquanto a aplicação exibe 30 resultados por página com um limite de 30 páginas no total _(limite imposto pelo Git no consumo da API)_
 
-# GitHubRepoSearch
+**Bibliotecas adicionais**<br>
+Foi utilizado Bootstrap 5.0 e fontawesome 4.7
 
+**Commits padronizados com commitzen, pré-commits configurados em Husky com prettier**
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.9.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+**Próximos implementações**<br>
+Será adicionado testes unitários e integrados, mas estou estudando o tema melhor para conseguir desenvolve-lo.
