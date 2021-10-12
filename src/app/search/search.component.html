@@ -1,0 +1,6 @@
+<app-loading *ngIf="loading"></app-loading>
+<app-search-tab (updateQueryList)="updateQueryList($event, true)"></app-search-tab>
+<app-search-result-list [queryList]="queryResponseList"></app-search-result-list>
+<app-search-pagination [totalResults]="queryResponseList?.total_count" [currentPage]="currentPage"
+  (updateQueryList)="updateQueryPage($event)">
+</app-search-pagination>

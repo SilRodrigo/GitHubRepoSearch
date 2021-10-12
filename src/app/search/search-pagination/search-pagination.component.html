@@ -1,0 +1,21 @@
+<nav *ngIf="totalResults" class="pagination-membrane mb-2 px-2 pb-1 pt-3 bg-light border rounded">
+  <ul class="pagination">
+    <li class="page-item pointer" (click)="previousPage()">
+      <div class="page-link">
+        Anterior</div>
+    </li>
+    <li class="page-item active">
+      <div class="page-link">{{currentPage}}</div>
+    </li>
+    <li class="page-item">
+      <div class="page-link go-to">Ir para: <input class="ms-1" type="number" (keypress)="goToKeyPress($event)"></div>
+    </li>
+    <li *ngIf="totalPages && totalPages !== currentPage" class="page-item pointer">
+      <div class="page-link" (click)="goToPage(totalPages)">{{totalPages}}</div>
+    </li>
+    <li class="page-item pointer" (click)="nextPage()">
+      <div class="page-link">
+        Próximo</div>
+    </li>
+  </ul>
+</nav>
